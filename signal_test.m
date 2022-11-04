@@ -1,12 +1,12 @@
 %%
 %生成2018.1.4 - 2020.1.23区间的数据，并保存
-startDate = datenum(2019, 1, 4);
+startDate = datenum(2018, 1, 4);
 endDate = datenum(2020, 1, 23);
-windowSmooth  = 5;
-windowReg = 30;
-stock_sector = 31;
-windowTest = 12;
-signal = PairTradingSignalV6(startDate, endDate, windowSmooth, windowReg,stock_sector, windowTest);
+windowSmooth  = 5; %平滑窗口
+windowReg = 30; %回归窗口
+stock_sector = 31; %选择的板块
+windowTest = 12; % 检验平稳性窗口
+signal = PairTradingSignalV6(startDate, endDate, windowSmooth, windowReg,stock_sector, windowTest); 
 signal.initializeHistory();
 dateCodeDouble = cell2mat(signal.dateList(signal.startDateLoc:signal.endDateLoc,1));
 [n,~] = size(dateCodeDouble);
@@ -24,4 +24,4 @@ for d = 1:n
                                 num2str(remainingTime), 'min.'];
     waitbar(progress, progressBar, progressStr);
 end
-save('signalV62019010420200123(30+5).mat','signal');%保存结果，调用代码为 load 'signalV52018010420200123(window_reg+window_smooth).mat' signal
+save('signalV62018010420200123(30+5).mat','signal');%保存结果，调用代码为 load 'signalV52018010420200123(window_reg+window_smooth).mat' signal
