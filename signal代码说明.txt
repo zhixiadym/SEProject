@@ -1,0 +1,4 @@
+PairTradingSignalV5.m、PairTradingSignalV6.m： 生成signal的两个类，V5包含对趋势项的检测，V6不包含
+signal_test.m：信号生成，可指定日期区间，结果会自动保存
+signaloutput_summary.m: 对生成的信号进行统计分析
+selectStockUniverse.m: 对选择的板块进行统计分析
